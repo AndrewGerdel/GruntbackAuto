@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace GruntbackAuto.Models
 {
-    public class OrderContext : DbContext
-    {
-        public DbSet<Order> Orders { get; set; }
-    }
     public class Order
     {
         public Part Part { get; set; }

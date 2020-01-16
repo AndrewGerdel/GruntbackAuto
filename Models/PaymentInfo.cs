@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace GruntbackAuto.Models
 {
-    public class PaymentInfoContext : DbContext
-    {
-        public DbSet<PaymentInfo> PaymentInfos { get; set; }
-    }
+  
     public class PaymentInfo
     {
         /// <summary>
