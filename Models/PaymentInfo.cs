@@ -9,6 +9,8 @@ namespace GruntbackAuto.Models
   
     public class PaymentInfo
     {
+        public int ID { get; set; }
+
         /// <summary>
         /// In a real world app I would encrypt this value  Todo?
         /// </summary>

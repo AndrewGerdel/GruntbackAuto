@@ -9,6 +9,10 @@ namespace GruntbackAuto.Models
     public class PartContext : DbContext
     {
         public DbSet<Part> Parts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<PaymentInfo> PaymentInfos { get; set; }
     }
 
     public class Part
