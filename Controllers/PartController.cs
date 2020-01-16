@@ -10,21 +10,28 @@ namespace GruntbackAuto.Controllers
 {
     public class PartController : Controller
     {
+        PartRepository partRepository;
+
+        public PartController()
+        {
+            partRepository = new PartRepository();
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Returns a part.  In real-world application I would also decorate this action with authorize. 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
-        public void Test()
+        public Part Get(int id)
         {
-            var part = new Part();
-            part.ID = 1;
-            part.Description = "part1";
-            part.Name = "Part 1";
-            part.WeightPounds = 0.5m;
-            var repo = new PartRepository();
-            repo.AddPart(part);
+            var part = partRepository.GetPart(id);
+            return part;
         }
     }
 }

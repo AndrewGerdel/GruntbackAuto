@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace GruntbackAuto.Repositories
 {
-    public class PartRepository
+    public class OrderRepository
     {
-        public void AddPart(Part part)
+        public void AddOrder(Order order)
         {
             using (var db = new PartContext())
             {
-                db.Parts.Add(part);
+                db.Orders.Add(order);
                 db.SaveChanges();
             }
         }
 
-        public Part GetPart(int id)
+        public Order GetOrder(int id)
         {
             using (var db = new PartContext())
             {
-                return db.Parts.Where(x => x.ID.Equals(id)).FirstOrDefault();
+                return db.Orders.Where(x => x.ID.Equals(id)).FirstOrDefault();
             }
         }
     }
