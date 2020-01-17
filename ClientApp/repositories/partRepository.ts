@@ -7,14 +7,15 @@ export class partRepository {
   constructor(private http: HttpClient) {
   }
 
-
   getAllParts() {
-    return this.http.get<PartResponse>('part/GetAllParts');
+    return this.http.get<PartResponse[]>('part/GetAllParts');
   }
 }
 
 
 export class PartResponse {
-  ID: number;
-  Description: string;
+  id: number;
+  name: string;
+  description: string;
+  weightPounds: number;
 }

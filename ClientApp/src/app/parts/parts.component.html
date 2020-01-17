@@ -1,2 +1,26 @@
-<div>parts Component</div>
-{{allParts}}
+<div>View All Parts <input type="button" class="btn btn-primary" style="float: right;" value="Add New" /> </div>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Weight (LBS)</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let part of allParts">
+    <td>
+      {{part.id}}
+    </td>
+    <td>
+      {{part.name}}
+    </td>
+    <td>
+      {{part.description}}
+    </td>
+
+    <td>
+      {{part.weightPounds}}
+    </td>
+  </tr>
+</table>

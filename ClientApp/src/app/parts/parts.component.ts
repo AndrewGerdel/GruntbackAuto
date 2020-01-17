@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { partRepository } from '../../../repositories/partRepository';
+import { partRepository, PartResponse } from '../../../repositories/partRepository';
 
 @Component({
   selector: 'app-parts',
@@ -8,12 +8,12 @@ import { partRepository } from '../../../repositories/partRepository';
 })
 /** parts component*/
 export class PartsComponent {
-  allParts: any;
+  allParts: PartResponse[] = [];
 
   /** parts ctor */
   constructor(partRepo: partRepository) {
     partRepo.getAllParts().subscribe((data) => {
-      this.allParts = JSON.stringify(data);
+      this.allParts = data;
     }, (error) => {
         console.log("error: " + error);
     });
