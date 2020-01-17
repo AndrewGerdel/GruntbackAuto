@@ -24,5 +24,13 @@ namespace GruntbackAuto.Repositories
                 return db.Parts.Where(x => x.ID.Equals(id)).FirstOrDefault();
             }
         }
+
+        public IEnumerable<Part> GetAllParts()
+        {
+            using (var db = new PartContext())
+            {
+                return db.Parts.ToList();
+            }
+        }
     }
 }

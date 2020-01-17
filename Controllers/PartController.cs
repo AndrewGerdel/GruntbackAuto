@@ -33,5 +33,16 @@ namespace GruntbackAuto.Controllers
             var part = partRepository.GetPart(id);
             return part;
         }
+
+        /// <summary>
+        /// Should also be authorized, in a real world app. 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IEnumerable<Part> GetAllParts()
+        {
+            var parts = partRepository.GetAllParts();
+            return parts;
+        }
     }
 }
