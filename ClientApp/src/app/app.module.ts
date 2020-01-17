@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { PartsComponent } from './parts/parts.component';
+import { AddpartComponent } from './addpart/addpart.component';
 import { partRepository } from '../../repositories/partRepository';
 
 @NgModule({
@@ -25,7 +26,8 @@ import { partRepository } from '../../repositories/partRepository';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    PartsComponent
+    PartsComponent,
+    AddpartComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,6 +37,7 @@ import { partRepository } from '../../repositories/partRepository';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'viewparts', component: PartsComponent },
+      { path: 'addpart', component: AddpartComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ]),
     BrowserAnimationsModule,

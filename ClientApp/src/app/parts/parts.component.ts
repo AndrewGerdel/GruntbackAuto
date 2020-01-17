@@ -18,4 +18,10 @@ export class PartsComponent {
         console.log("error: " + error);
     });
   }
+
+  addNewPart() {
+    console.log('hiot112');
+    location.href = "/addpart";
+  }
+
 }
