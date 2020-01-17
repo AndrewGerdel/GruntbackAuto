@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -18,6 +18,8 @@ import { MatCardModule } from '@angular/material/card';
 import { PartsComponent } from './parts/parts.component';
 import { AddpartComponent } from './addpart/addpart.component';
 import { partRepository } from '../../repositories/partRepository';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { partRepository } from '../../repositories/partRepository';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -42,7 +46,8 @@ import { partRepository } from '../../repositories/partRepository';
     ]),
     BrowserAnimationsModule,
     MatSliderModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },

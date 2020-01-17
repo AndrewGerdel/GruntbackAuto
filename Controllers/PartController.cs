@@ -44,5 +44,11 @@ namespace GruntbackAuto.Controllers
             var parts = partRepository.GetAllParts();
             return parts;
         }
+
+        [HttpPost]
+        public void AddNewPart(Part part)
+        {
+            partRepository.AddPart(part);// new Part() { Description = description, ID = id, Name = name, WeightPounds = weightPounds });
+        }
     }
 }

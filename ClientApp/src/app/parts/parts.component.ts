@@ -20,7 +20,7 @@ export class PartsComponent {
   }
 
   addNewPart() {
-    console.log('hiot112');
+    
     location.href = "/addpart";
   }
 
