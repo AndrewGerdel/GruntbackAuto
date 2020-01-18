@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GruntbackAuto.Interfaces;
 using GruntbackAuto.Models;
 using GruntbackAuto.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -10,11 +11,20 @@ namespace GruntbackAuto.Controllers
 {
     public class PartController : Controller
     {
-        PartRepository partRepository;
+        IPartRepository _partRepository;
 
         public PartController()
         {
-            partRepository = new PartRepository();
+            _partRepository = new PartRepository();
+        }
+
+        /// <summary>
+        /// Allow the caller (such as unit tests) to inject their own partrepo 
+        /// </summary>
+        /// <param name="partRepository"></param>
+        public PartController(IPartRepository partRepository)
+        {
+            _partRepository = partRepository;
         }
 
         public IActionResult Index()
@@ -30,7 +40,7 @@ namespace GruntbackAuto.Controllers
         [HttpGet]
         public Part Get(int id)
         {
-            var part = partRepository.GetPart(id);
+            var part = _partRepository.GetPart(id);
             return part;
         }
 
@@ -39,16 +49,16 @@ namespace GruntbackAuto.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<Part> GetAllParts()
+        public List<Part> GetAllParts()
         {
-            var parts = partRepository.GetAllParts();
+            var parts = _partRepository.GetAllParts().ToList();
             return parts;
         }
 
         [HttpPost]
         public void AddNewPart(Part part)
         {
-            partRepository.AddPart(part);// new Part() { Description = description, ID = id, Name = name, WeightPounds = weightPounds });
+            _partRepository.AddPart(part);// new Part() { Description = description, ID = id, Name = name, WeightPounds = weightPounds });
         }
     }
 }

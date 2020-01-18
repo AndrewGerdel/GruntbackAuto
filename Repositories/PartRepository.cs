@@ -1,4 +1,5 @@
-﻿using GruntbackAuto.Models;
+﻿using GruntbackAuto.Interfaces;
+using GruntbackAuto.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GruntbackAuto.Repositories
 {
-    public class PartRepository
+    public class PartRepository : IPartRepository
     {
         public void AddPart(Part part)
         {
