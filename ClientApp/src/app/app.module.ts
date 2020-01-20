@@ -20,6 +20,9 @@ import { AddpartComponent } from './addpart/addpart.component';
 import { partRepository } from '../../repositories/partRepository';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material';
+import { WorkdayhourstileComponent } from './workdayhourstile/workdayhourstile.component';
+import { WorkdayhoursComponent } from './workdayhours/workdayhours.component';
+import { WorkweekhoursComponent } from './workweekhours/workweekhours.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { MatFormFieldModule } from '@angular/material';
     CounterComponent,
     FetchDataComponent,
     PartsComponent,
-    AddpartComponent
+    AddpartComponent,
+    WorkdayhourstileComponent,
+    WorkdayhoursComponent,
+    WorkweekhoursComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
